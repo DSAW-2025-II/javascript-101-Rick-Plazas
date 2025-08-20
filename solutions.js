@@ -1,16 +1,23 @@
 // Sum of Two Numbers
 function sum(a, b) {
-  return a+b; 
+  if (typeof a !== "number" || typeof b !== "number") {
+    console.log("Los datos de entrada no son adecuados");
+    return;
+  }
+  return a + b;
 }
 
 // Factorial of a Number
 function factorial(n) {
-  if (n < 0) return null; //No hay factoriales negativos
+  if (typeof n !== "number" || !Number.isInteger(n)) {
+    console.log("Los datos de entrada no son adecuados");
+    return;
+  }
+  if (n < 0) return null; 
   if (n === 0 || n === 1) return 1;
 
   let result = 1;
-
-  for(let i = 2; i <= n; i++){
+  for (let i = 2; i <= n; i++) {
     result *= i;
   }
   return result;
@@ -18,12 +25,15 @@ function factorial(n) {
 
 // Find the Largest Number
 function findLargest(arr) {
+  if (!Array.isArray(arr) || arr.some(e => typeof e !== "number")) {
+    console.log("Los datos de entrada no son adecuados");
+    return;
+  }
 
-  let largest = arr[0]; //Se asume que el primero es el más alto
-
-  for (let i = 1; i < arr.length; i++){ //Recorre el arreglo en la longitud del arreglo
-    if(arr[i] > largest){ //Si la posición i del arreglo es más grande que la posición 1
-      largest = arr[i]; //La posición más alta se actualiza 
+  let largest = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > largest) {
+      largest = arr[i];
     }
   }
   return largest; 
@@ -31,12 +41,16 @@ function findLargest(arr) {
 
 // Count Vowels in a String
 function countVowels(str) {
-  const vowels = "aeiouAEIOU";
+  if (typeof str !== "string") {
+    console.log("Los datos de entrada no son adecuados");
+    return;
+  }
 
-  let count = 0; //Arranca el contador
-  for(let char of str){ //Se declara una variable que contenga la constante de la función
-    if(vowels.includes(char)){ //Si la cadena incluye la variable que contiene la constante, o sea las vocales
-      count ++; //se aumenta el contador
+  const vowels = "aeiouAEIOU";
+  let count = 0;
+  for (let char of str) {
+    if (vowels.includes(char)) {
+      count++;
     }
   }
   return count;
@@ -44,17 +58,15 @@ function countVowels(str) {
 
 // Check if a Number is Prime
 function isPrime(n) {
-  if (n <= 1){  //Los números menores a 1 no son primos
-    return false;
+  if (typeof n !== "number" || !Number.isInteger(n)) {
+    console.log("Los datos de entrada no son adecuados");
+    return;
   }
 
-  for (let i = 2; i <= Math.sqrt(n); i++){  //Si un nu´mero no tiene divisores iguales a su raíz, no tiene divisores
-    if (n % i == 0){ //Número divisible por n sin residuo
-      return false;
-    }
-    
+  if (n <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) return false;
   }
-
   return true;
 }
 
