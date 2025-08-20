@@ -5,13 +5,8 @@ function sum(a, b) {
 
 // Factorial of a Number
 function factorial(n) {
-  if (n < 0){
-    return null; //No hay factoriales negativos
-  }
-
-  if (n == 0 || n==1){
-    return 1;
-  }
+  if (n < 0) return undefined //No hay factoriales negativos
+  if (n == 0 || n==1) return 1;
 
   let result = 1;
 
@@ -26,7 +21,7 @@ function findLargest(arr) {
 
   let largest = arr[0]; //Se asume que el primero es el más alto
 
-  for (let i = 1; i <= arr.length; i++){ //Recorre el arreglo en la longitud del arreglo
+  for (let i = 1; i < arr.length; i++){ //Recorre el arreglo en la longitud del arreglo
     if(arr[i] > largest){ //Si la posición i del arreglo es más grande que la posición 1
       largest = arr[i]; //La posición más alta se actualiza 
     }
