@@ -5,8 +5,8 @@ function sum(a, b) {
 
 // Factorial of a Number
 function factorial(n) {
-  if (n < 0) return undefined //No hay factoriales negativos
-  if (n == 0 || n==1) return 1;
+  if (n < 0) return null; //No hay factoriales negativos
+  if (n === 0 || n === 1) return 1;
 
   let result = 1;
 
